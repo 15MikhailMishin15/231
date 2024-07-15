@@ -33,9 +33,9 @@ public class AppConfig {
     @Bean
     public DataSource dataSource() {
         ComboPooledDataSource dataSource = new ComboPooledDataSource();
-        dataSource.setJdbcUrl("jdbc:mysql://localhost:3306/yourdb");
-        dataSource.setUser("youruser");
-        dataSource.setPassword("yourpassword");
+        dataSource.setJdbcUrl("jdbc:mysql://localhost:3306/mydbtest");
+        dataSource.setUser("root");
+        dataSource.setPassword("Password_1");
         return dataSource;
     }
 
