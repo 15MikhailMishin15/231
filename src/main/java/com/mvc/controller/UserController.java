@@ -44,4 +44,10 @@ public class UserController {
         userService.deleteById(id);
         return "redirect:/users";
     }
+
+    @PostMapping("/update")
+    public String updateUser(@ModelAttribute("user") User user) {
+        userService.update(user);
+        return "redirect:/users";
+    }
 }

@@ -12,8 +12,12 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
+    private final UserRepository userRepository;
+
     @Autowired
-    private UserRepository userRepository;
+    public UserServiceImpl(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @Override
     @Transactional
@@ -37,5 +41,14 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public void deleteById(Long id) {
         userRepository.deleteById(id);
+    }
+
+    @Override
+    @Transactional
+    public void update(User user) {
+        if (user == null) {
+            throw new IllegalArgumentException("User cannot be null");
+        }
+        userRepository.save(user);
     }
 }
